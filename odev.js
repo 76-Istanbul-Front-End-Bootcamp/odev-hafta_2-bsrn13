@@ -10,7 +10,7 @@ var person = {
   }
 }
 
-var messageFunc = person.message
+var messageFunc = person.message.bind(person);
 messageFunc();
 
 
@@ -25,7 +25,7 @@ messageFunc();
 var numbers = {
   numbers: [[10,20,30], 2],
   multiply: function(){
-    this.numbers[0].map(function(number, numberIndex){
+    this.numbers[0].map((number) => {
         const result = number * this.numbers[1];
         console.log(result)
     })
@@ -43,7 +43,20 @@ numbers.multiply();
   Ornek : isValidName(" J ohn") false donmeli
 */
 function isValidName(name){
-
+   let a = name;
+    if (typeof(name) === "string") {
+      let trimmedName = name.trim().split(" ");
+       console.log(trimmedName)
+      if (trimmedName.length > 1 ||trimmedName[0].length < 2) {
+          return false;
+      }
+      return true;
+    }
+    else {
+        return false;
+    }
+    
+    }
 }
 
 /*
@@ -59,7 +72,21 @@ function isValidName(name){
   Ornek: katilimSaati("5", "30") 150 sonucunu vermelidir.
 */
 function katilimSaati(dersSayisi, dersSuresi){
+  let a = dersSayisi * dersSuresi;
+  let b = String(dersSayisi);
+  let c = String(dersSuresi);
+    if (parseInt(b) && parseInt(c)) {
+      console.log(a)
+    return true;  
+  } 
+  else {
+    return false;
+  }
+ 
+}
+
 
 }
+
 
 
